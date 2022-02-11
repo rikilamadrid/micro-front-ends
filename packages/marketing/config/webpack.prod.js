@@ -16,8 +16,8 @@ const prodConfig = {
       exposes: {
         './MarketingApp': './src/bootstrap',
       },
+      shared: packageJson.dependencies,
     }),
-    shared: packageJson.dependencies,
   ],
 };
 
