@@ -156,7 +156,7 @@ export default function Album() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Lamadrid!
         </Typography>
         <Copyright />
       </footer>

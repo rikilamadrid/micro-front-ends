@@ -11,13 +11,14 @@ import App from './App';
 //    onNavigate: function to call when the app navigates
 //    defaultHistory: history object to use (if on development we create
 //    a browser history otherwise we use a memory history).
+//    initialPath: path to navigate to initially
 // returns:
 //   object with callback:
 //     onParentNavigate: to communicate with the parent app.
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
   // If we are on development mode we use browser history otherwise the remote app needs to have a memory history and not a browser history since the host shell app is using that history for the routes and we can avoid any race issue when they both try to update the same history object.
   const history = defaultHistory || createMemoryHistory({
-    initialEntries: [initialPath],
+    initialEntries: [initialPath]
   });
 
   if (onNavigate) {
@@ -25,7 +26,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   };
 
   ReactDOM.render(
-    <App history={history} />,
+    <App onSignIn={onSignIn} history={history} />,
     el,
   );
 
@@ -43,7 +44,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 // If we are in development mode and in isolation,
 // call mount immediately
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root'); // In dev we know the correct id so we can just mount
+  const devRoot = document.querySelector('#_auth-dev-root'); // In dev we know the correct id so we can just mount
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
   }
