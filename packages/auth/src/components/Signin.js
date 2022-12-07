@@ -59,9 +59,6 @@ export default function SignIn({ onSignIn }) {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          {userData?.name && `Sign in as ${userData.name}`}
-        </Typography>
         <form
           onSubmit={(e) => e.preventDefault()}
           className={classes.form}
