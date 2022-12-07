@@ -81,15 +81,6 @@ export default function Header({ isSignedIn, onSignOut }) {
           >
             Home
           </Typography>
-          <Typography
-            variant="h6"
-            color="inherit"
-            noWrap
-            component={RouterLink}
-            to="/pricing"
-          >
-            Pricing
-          </Typography>
           <Button
             color="primary"
             variant="outlined"
