@@ -156,7 +156,7 @@ export default function Album() {
           color="textSecondary"
           component="p"
         >
-          Lamadrid!
+          BFS!
         </Typography>
         <Copyright />
       </footer>

@@ -21,6 +21,9 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   });
 
   if (onNavigate) {
+    const { pathname } = history.location;
+    console.log('lamadrid REMOTE NAVVVVVVV pathname', pathname)
+    // history.listen(onNavigate(...args, { label: 'lamadrid' }));
     history.listen(onNavigate);
   };
 
@@ -31,7 +34,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
-      console.log('lamadrid container just navigated', nextPathname);
+      console.log('lamadrid host just navigated MARKAPP', nextPathname);
       const { pathname } = history.location;
       if (pathname !== nextPathname) {
         history.push(nextPathname);

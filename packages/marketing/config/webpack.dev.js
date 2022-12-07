@@ -7,11 +7,11 @@ const packageJson = require('../package.json');
 const devConfig = {
   mode: 'development',
   output: {
-    publicPath: 'https://localhost:8081/',
+    publicPath: 'https://localhost:4444/',
   },
   devServer: {
     https: true,
-    port: 8081,
+    port: 4444,
     historyApiFallback: {
       index: '/index.html',
     },
@@ -23,7 +23,7 @@ const devConfig = {
       exposes: {
         './MarketingApp': './src/bootstrap',
       },
-      shared: packageJson.dependencies // list of use dependencies to share in order to save network calls
+      shared: packageJson.dependencies, // list of use dependencies to share in order to save network calls
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ onSignIn }) {
+export default function SignIn({ onSignIn, oidcConfig, userData }) {
   const classes = useStyles();
 
   return (
@@ -60,8 +60,11 @@ export default function SignIn({ onSignIn }) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          {userData?.name && `Sign in as ${userData.name}`}
         </Typography>
+        <h4 style={{ 'width': '100%' }}>
+          {oidcConfig?.oidcUser?.access_token && `With token ${oidcConfig?.oidcUser?.access_token}`}
+        </h4>
         <form
           onSubmit={(e) => e.preventDefault()}
           className={classes.form}

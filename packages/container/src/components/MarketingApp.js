@@ -12,8 +12,9 @@ export default function MarketingApp() {
     const { onParentNavigate } = mount(ref.current, {
       initialPath: history.location.pathname,
       // destructuring the pathname out of location object and renaming it to nextPathname
-      onNavigate: ({ pathname: nextPathname }) => {
-        console.log('lamadrid remote just navigated', nextPathname);
+      onNavigate: ({ pathname: nextPathname }, label) => {
+        console.log('lamadrid nextPathname', nextPathname);
+        console.log('lamadrid label', label.label);
         const { pathname } = history.location;
         // to avoid infinite loop we check if the pathname is the same as the nextPathname
         if (pathname !== nextPathname) {
