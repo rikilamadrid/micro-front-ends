@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ onSignIn, oidcConfig, userData }) {
+export default function SignIn({ onSignIn }) {
   const classes = useStyles();
 
   return (
@@ -62,9 +62,6 @@ export default function SignIn({ onSignIn, oidcConfig, userData }) {
         <Typography component="h1" variant="h5">
           {userData?.name && `Sign in as ${userData.name}`}
         </Typography>
-        <h4 style={{ 'width': '100%' }}>
-          {oidcConfig?.oidcUser?.access_token && `With token ${oidcConfig?.oidcUser?.access_token}`}
-        </h4>
         <form
           onSubmit={(e) => e.preventDefault()}
           className={classes.form}
